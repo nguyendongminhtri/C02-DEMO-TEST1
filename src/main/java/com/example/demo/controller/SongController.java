@@ -32,10 +32,10 @@ public class SongController {
     }
     @PostMapping
     public ResponseEntity<?> createSong(@Valid @RequestBody Song song){
-        if(song.getAvatarUrl().trim().isEmpty()){
+        if(song.getAvatarUrl()==null||song.getAvatarUrl().trim().isEmpty()){
             return new ResponseEntity<>(new ResponMessage("noavatar"), HttpStatus.OK);
         }
-        if(song.getMp3Url().trim().isEmpty()){
+        if(song.getMp3Url()==null||song.getMp3Url().trim().isEmpty()){
             return new ResponseEntity<>(new ResponMessage("nomp3url"), HttpStatus.OK);
         }
         songService.save(song);

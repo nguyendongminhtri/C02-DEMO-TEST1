@@ -16,16 +16,16 @@ public class Song {
     @NotBlank
     @Lob
     private String lyrics;
-    @NotBlank
+
     private String avatarUrl;
-    @NotBlank
+
     private String mp3Url;
     @ManyToOne
     User user;
     public Song() {
     }
 
-    public Song(Long id, String nameSong, String lyrics, String avatarUrl, String mp3Url, User user) {
+    public Song(Long id, @NotBlank String nameSong, @NotBlank  String lyrics, String avatarUrl, String mp3Url, User user) {
         this.id = id;
         this.nameSong = nameSong;
         this.lyrics = lyrics;
